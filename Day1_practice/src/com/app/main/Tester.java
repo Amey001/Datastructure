@@ -21,6 +21,14 @@ public class Tester {
 		l1.display();
 		
 		l1.displayRev();
+		l1.display();
+		
+		//60,10,20,30,40,50   now i want to delete the 20
+		System.out.println("deleting the element from 3rd position ...");
+		l1.deletebyposition(3);
+		l1.display();
+		
+		
 		
 		
 	}

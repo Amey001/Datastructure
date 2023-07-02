@@ -94,8 +94,7 @@ public class LinkedList {
 		while(temp!=null)
 		{
 			s.push(temp);
-			temp=temp.getNext();
-			
+			temp=temp.getNext();	
 		}
 		
 		s.forEach((i)->System.out.println(" stack :: "+i.getData()));
@@ -107,10 +106,65 @@ public class LinkedList {
 			
 		}
 		System.out.println(" stack is empty all data has popped !!!");
-		
-			
+	}
 	
+	//delete by data 
+	public boolean deletedata(int data)
+	{
+		//if head is null then simply return false;
+		if(head == null)
+		{
+			return false;
+		}
+		
+		//if data is present at first position then
+		if(head.getData()== data)
+		{
+			head=head.getNext();
+		}
+		
+		//now the data is not present at first position then we have to move next
+		Node prev=head,del=head;
+		
+		while(del.getData()!=data)
+		{
+			prev=del;
+			del=del.getNext();
+		}
+		
+		//else now if the data is found then above loop will stop and flow comes here
+		 prev.setNext(del.getNext());
+		 return true;	
+	}
+	
+	public boolean deletebyposition(int position)
+	{
+		//if head is null then simply return false;
+		if(head == null)
+		{
+			return false;
+		}
+		
+		if(position == 1)
+		{
+			head=head.getNext();
+		}
+		
+		Node prev=head;
+		for(int i=1;i<position-1;i++)
+		{
+			prev=prev.getNext();
+			if(prev.getNext()==null)
+			{
+				return false;	
+			}
+		}
+		Node del=prev.getNext();
+		prev.setNext(del.getNext());
+		return true;
 		
 	}
+	
+	
 
 }
